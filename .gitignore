@@ -1,0 +1,3 @@
+#Ignorar log
+/var/log/nginx/monitoramento.log
+
