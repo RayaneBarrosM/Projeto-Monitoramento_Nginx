@@ -1,0 +1,21 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	# SSL configuration
+	root /var/www/html;
+
+	# Add index.php to the list if you are using PHP
+	index index.html;
+
+	server_name 0.0.0.0;
+
+	location /webhook{
+		proxy_pass http://localhost:3000/webhook;
+		proxy_set_header Content-Type "application/json";
+
+		allow 0.0.0.0;
+		deny all;
+	}
+
+}
