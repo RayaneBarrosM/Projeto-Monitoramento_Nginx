@@ -120,8 +120,8 @@ while true; do
         sleep 60
 done
 ```
-**Teste**
-Para testar se o script funciona digite os seguintes comandos:
+**Teste**<br>
+Para testar se o script funciona digite os seguintes comandos:<br>
 ```bash
 sudo systemctl stop nginx
 sudo bash seu_script.sh
