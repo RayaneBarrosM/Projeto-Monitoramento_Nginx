@@ -122,7 +122,7 @@ while true; do
 done
 ```
 
-**Teste**
+**6.Teste**
 
 Para testar se o script funciona digite os seguintes comandos:
 
