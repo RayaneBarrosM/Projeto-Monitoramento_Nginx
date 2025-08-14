@@ -135,7 +135,7 @@ sudo bash seu_script.sh
 
 *Forma de como deve aparecer no terminal*
 
-<img width="518" height="105" alt="image" align="center" src="https://github.com/user-attachments/assets/20a7e9a1-9b68-4c7c-9b4c-11dd6ac62765" />
+<img width="514" height="105" alt="image" align="center" src="https://github.com/user-attachments/assets/20a7e9a1-9b68-4c7c-9b4c-11dd6ac62765" />
 
 *Forma como deve aparecer no Discord* <br>
 Para parar utilize `Ctrl+C`
