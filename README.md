@@ -74,7 +74,6 @@ SERVICE="nginx"
 
 sudo mkdir -p "$LOG_DIR" || { echo "Erro ao criar diretorio" >&2; exit1; } # Cria diretório de logs 
 sudo touch "LOG_FILE" || { echo "Erro ao criar arquivo de logs" >&2; exit1; } # Cria o arquivo de logs vazio
-sudo chwn $(whoami):$(id -gn) "$LOG_FILE" # Altera o proprietário do arquivo para o usuário atual
 sudo chmod 664 "LOG_FILE" #Permição do de dono e grupos
 
 #Função de registro de logs
