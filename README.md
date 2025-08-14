@@ -131,11 +131,11 @@ Para testar se o script funciona digite os seguintes comandos:
 sudo systemctl stop nginx
 sudo bash seu_script.sh
 ```
-<img width="514" height="125" alt="image" src="https://github.com/user-attachments/assets/ab5c9f38-13af-4393-8b9d-cdc3b807c49d" />
+<img width="514" height="125" alt="image" align="center" src="https://github.com/user-attachments/assets/ab5c9f38-13af-4393-8b9d-cdc3b807c49d" />
 
 *Forma de como deve aparecer no terminal*
 
-<img width="718" height="105" alt="image" src="https://github.com/user-attachments/assets/20a7e9a1-9b68-4c7c-9b4c-11dd6ac62765" />
+<img width="518" height="105" alt="image" align="center" src="https://github.com/user-attachments/assets/20a7e9a1-9b68-4c7c-9b4c-11dd6ac62765" />
 
 *Forma como deve aparecer no Discord* <br>
 Para parar utilize `Ctrl+C`
