@@ -49,7 +49,7 @@ server{
     proxy_set_header Content_Type; "application/json"
 
     #Restrição de ip
-    allow 0.0.0.0; #colocar ip da sua maquina
+    allow 0.0.0.0; #colocar ip da sua máquina
     deny all; #bloqueia de utilizarem outro ip para acessarem
   }
 }
