@@ -31,7 +31,8 @@ Crie uma pasta em `/var/www/` aqui chamarei de discord-webhook, e dentro dela um
 <br>
 
 **3. Configuração o servidor** <br>
-Configure o servidor acessando o arquivo default por meio do comando: `sudo nano /etc/nginx/sites-enabled/default` <br>
+Configure o servidor acessando o arquivo default por meio do comando: `sudo nano /etc/nginx/sites-enabled/default` 
+
 ```nginx
 server{
   listen 80 default_server; #Porta padrão
@@ -60,9 +61,10 @@ Para a criação do webhook será utilizado um canal no Discord, para isso siga 
 • Selecionar a aba Integrações<br>
 • Clicar em criar webhook<br>
 • Clique em copiar url para adiciona-lo ao script 
-<br>
+
 
 **5.Criação do Script**
+
 ```bash
 #Variaveis e permições
 LOG_DIR="var/log/nginx/pasta-logs" #Caminho para o diretório onde serão armazenados os arquivo de logs
@@ -120,16 +122,20 @@ while true; do
         sleep 60
 done
 ```
-**Teste**<br>
-Para testar se o script funciona digite os seguintes comandos:<br>
+
+**Teste**
+
+Para testar se o script funciona digite os seguintes comandos:
+
 ```bash
 sudo systemctl stop nginx
 sudo bash seu_script.sh
 ```
 <img width="514" height="125" alt="image" src="https://github.com/user-attachments/assets/ab5c9f38-13af-4393-8b9d-cdc3b807c49d" />
-<br>
+
 *Forma de como deve aparecer no terminal*
+
 <img width="718" height="105" alt="image" src="https://github.com/user-attachments/assets/20a7e9a1-9b68-4c7c-9b4c-11dd6ac62765" />
-<br>
+
 *Forma como deve aparecer no Discord* <br>
-Para parar utilize `ctrol+c`
+Para parar utilize `Ctrl+C`
