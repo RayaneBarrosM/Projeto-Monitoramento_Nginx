@@ -54,7 +54,7 @@ server{
 }
 ```
 **4.Criação de webhook**<br>
-Para a criação do webhook será utilizado um canal no Discord, para isso siga os seguintes passos:
+Para a criação do webhook será utilizado um canal no Discord, para isso siga os seguintes passos:<br>
 • Criar um servidor no discord<br>
 • Acessar as configurações do canal onde será lançado as mensagens<br>
 • Selecionar a aba Integrações<br>
@@ -62,7 +62,7 @@ Para a criação do webhook será utilizado um canal no Discord, para isso siga 
 • Clique em copiar url para adiciona-lo ao script 
 <br>
 
-**5.criação do Script**
+**5.Criação do Script**
 ```bash
 #Variaveis e permições
 LOG_DIR="var/log/nginx/pasta-logs" #Caminho para o diretório onde serão armazenados os arquivo de logs
