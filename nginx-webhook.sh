@@ -8,7 +8,6 @@ SERVICE="nginx"
 #Redirecionamento dos Logs para arquivo e permição
 sudo mkdir -p "$LOG_DIR" ||{ echo "Erro: Tentativa falha de criar $LOG_DIR!" >&2; exit 1; }
 sudo touch "$LOG_FILE" || { echo "Erro: Tentativa falha de criar arquivo de log" >&2; exit 1; }
-sudo chown $(whoami):$(id -gn) "$LOG_FILE"
 sudo chmod 644 "$LOG_FILE"
 
 #Função de registro de logs
