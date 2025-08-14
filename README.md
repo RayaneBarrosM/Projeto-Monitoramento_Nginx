@@ -1,3 +1,9 @@
+# Projeto de Monitoramento de Erros
+**🎯 Objetivos do projeto:**<br>
+
+♦ Monitorar erros<br>
+♦ Redirecionar erros para Discord
+<br>
 # 📌 Passo a Passo <br> 
 **1. Instalação do Nginx**  <br>
 Atualize a lista de pacotes disponíveis para evitar trabalhar com pacotes desatualizados e instale o Nginx com os seguintes comandos. <br>
@@ -68,6 +74,44 @@ sudo mkdir -p "$LOG_DIR" || { echo "Erro ao criar diretorio" >&2; exit1; } #
 sudo touch "LOG_FILE" || { echo "Erro ao criar arquivo de logs" >&2; exit1; }#
 sudo chwn $(whoami):$(id -gn) "$LOG_FILE" #
 sudo chmod 664 "LOG_FILE" #Permição do de dono e grupos
+
+#Função de registro de logs
+log(){
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | sudo tee -a "$LOG_FILE"
+} 
+
+log "Arquivo de log criado"
+
+discord_alert() {
+   local message="$1"
+   curl  -s -X POST "$WEBHOOK_URL" -H "Content-type: application/json" -d "{\"content\" :\"$message\"}"
+}
+
+#Loop de verificao a cada 1 minuto
+while true; do
+        if ! systemctl is-active --quiet "$SERVICE"; then
+          log "$SERVICE está inativo"
+          discord_alert "Servidor inativo"
+        #Tentativas de reiniciar serviço
+             if sudo systemctl restart "$SERVICE"; then
+                 log "$SERVICE reiniciado com sucesso."
+                 discord_alert "Servidor reiniciado"
+
+             else
+                  if sudo systemctl start "$SERVICE"; then
+                     log "$SERVICE reiniciado com sucesso."
+                     discord_alert "Reiniciado com sucesso"
+
+                  else
+                     log "Falha ao reiniciar $SERVICE!"
+                     discord_alert
+                     exit 1
+                  fi 
+             fi
+        fi
+ 
+        sleep 60
+done
 ```
 **Teste**
 Para testar se o script funciona digite os seguintes comandos:
