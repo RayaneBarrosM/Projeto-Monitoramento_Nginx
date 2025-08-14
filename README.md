@@ -55,11 +55,11 @@ server{
 ```
 **4.Criação de webhook**<br>
 Para a criação do webhook será utilizado um canal no Discord, para isso siga os seguintes passos:
-• Criar um servidor no discord
-• Acessar as configurações do canal onde será lançado as mensagens
-• Selecionar a aba Integrações
-• Clicar em criar webhook
-//Para adiciona-lo ao script clique em copiar url
+• Criar um servidor no discord<br>
+• Acessar as configurações do canal onde será lançado as mensagens<br>
+• Selecionar a aba Integrações<br>
+• Clicar em criar webhook<br>
+• Clique em copiar url para adiciona-lo ao script 
 <br>
 
 **5.criação do Script**
@@ -77,31 +77,38 @@ sudo chmod 664 "LOG_FILE" #Permição do de dono e grupos
 
 #Função de registro de logs
 log(){
-        echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | sudo tee -a "$LOG_FILE"
-} 
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | sudo tee -a "$LOG_FILE" # Formata com hora e grava no arquivo de log
+}
 
+#Registra a criação do registro de log
 log "Arquivo de log criado"
 
+#Função para enviar  alertas ao Discord
 discord_alert() {
-   local message="$1"
+   local message="$1" # Armazena o primeiro argumento passado na variável
+   # Envia uma mensagem JSON para o webhook do Discord via curl
    curl  -s -X POST "$WEBHOOK_URL" -H "Content-type: application/json" -d "{\"content\" :\"$message\"}"
 }
 
 #Loop de verificao a cada 1 minuto
 while true; do
+       # Verifica se o serviço Nginx está inativo
         if ! systemctl is-active --quiet "$SERVICE"; then
           log "$SERVICE está inativo"
           discord_alert "Servidor inativo"
+
         #Tentativas de reiniciar serviço
              if sudo systemctl restart "$SERVICE"; then
                  log "$SERVICE reiniciado com sucesso."
                  discord_alert "Servidor reiniciado"
 
+            # Se o restart falhar, tenta um start
              else
                   if sudo systemctl start "$SERVICE"; then
                      log "$SERVICE reiniciado com sucesso."
                      discord_alert "Reiniciado com sucesso"
 
+                  # Se ambas as tentativas falharem
                   else
                      log "Falha ao reiniciar $SERVICE!"
                      discord_alert
@@ -109,7 +116,7 @@ while true; do
                   fi 
              fi
         fi
- 
+        # Intervalo 
         sleep 60
 done
 ```
