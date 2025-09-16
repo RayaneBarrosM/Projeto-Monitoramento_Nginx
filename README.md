@@ -1,9 +1,15 @@
 # Projeto de Monitoramento de Erros
+
 **🎯 Objetivos do projeto:**<br>
 
 ♦ Monitorar erros<br>
 ♦ Redirecionar erros para Discord
 <br>
+
+# 🧩Para fazer este projeto foi utilizado:
+Maquina Virtual VirtualBox
+Distribuição Linux Mint Mate
+
 # 📌 Passo a Passo <br> 
 **1. Instalação do Nginx**  <br>
 Atualize a lista de pacotes disponíveis para evitar trabalhar com pacotes desatualizados e instale o Nginx com os seguintes comandos. <br>
